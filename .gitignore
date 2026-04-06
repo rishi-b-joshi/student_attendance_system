@@ -1,0 +1,14 @@
+venv/
+**/migrations/*.py
+!**/migrations/__init__.py
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# SQLite database files
+*.sqlite3
+*.sqlite
+*.db
+# Django stuff:
+*.log
