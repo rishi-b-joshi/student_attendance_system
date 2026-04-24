@@ -12,10 +12,9 @@ This project consists of two main components:
 
 ```
 QR_generation/
-├── qr_generation.py                 # QR code generation utility
-├── scan_demo.html                   # Demo HTML for QR scanning
+├── UI                               # UI
+   ├── UI.py                         # UI (Streamlite)
 ├── requirement.txt                  # Project dependencies
-├── text.txt                         # Supporting text file
 └── student_attendance/              # Django project
     ├── manage.py                    # Django management script
     ├── db.sqlite3                   # SQLite database
@@ -81,19 +80,7 @@ QR_generation/
 - Admin panel for easy data administration
 - RESTful API endpoints (via djangorestframework)
 
-## 📝 Usage
-
-### Generate QR Codes
-
-Run the QR code generator:
-```bash
-python qr_generation.py
-```
-
-This will generate QR code images for sample students (S001, S002, S003).
-
 ### Run Django Development Server
-
 ```bash
 cd student_attendance
 python manage.py runserver
@@ -108,6 +95,20 @@ cd student_attendance
 python manage.py migrate
 ```
 
+## 📂 Database
+The project uses SQLite (`db.sqlite3`) for data storage. All student attendance records and related data are stored here.
+
+## 🛠️ Development
+
+### Apply Changes to Models
+After modifying models in `attendance/models.py`:
+
+```bash
+cd student_attendance
+python manage.py makemigrations
+python manage.py migrate
+```
+
 ### Create Django Admin User
 
 ```bash
@@ -117,56 +118,10 @@ python manage.py createsuperuser
 
 Then access the admin panel at `http://127.0.0.1:8000/admin/`
 
-## 🎯 QR Code Generation Example
 
-The `qr_generation.py` script demonstrates how to generate QR codes:
-
-```python
-from qr_generation import generate_qr_code
-
-# Generate a QR code
-qr_text = "ID: S001, Name: Alice Johnson"
-generate_qr_code(qr_text, "student_qr.png")
-```
-
-## 🌐 Testing QR Codes
-
-Open `scan_demo.html` in a web browser to test QR code scanning functionality.
-
-## 📂 Database
-
-The project uses SQLite (`db.sqlite3`) for data storage. All student attendance records and related data are stored here.
-
-## 🛠️ Development
-
-### Apply Changes to Models
-
-After modifying models in `attendance/models.py`:
-
+### RUN UI Server
 ```bash
-cd student_attendance
-python manage.py makemigrations
-python manage.py migrate
+cd UI
+streamlit run .\UI.py
 ```
-
-### Access Django Shell
-
-```bash
-cd student_attendance
-python manage.py shell
-```
-
-## 📖 Additional Resources
-
-- [Django Documentation](https://docs.djangoproject.com/)
-- [QRCode Library](https://github.com/lincolnloop/python-qrcode)
-- [Django REST Framework](https://www.django-rest-framework.org/)
-
-## 📄 License
-
-This project is provided as-is for educational and attendance management purposes.
-
----
-
-**Created:** April 2026  
-**Purpose:** Student Attendance Management & QR Code Generation
+Then access the localhost of UI at `http://localhost:8501/`
