@@ -80,21 +80,6 @@ QR_generation/
 - Admin panel for easy data administration
 - RESTful API endpoints (via djangorestframework)
 
-### Run Django Development Server
-```bash
-cd student_attendance
-python manage.py runserver
-```
-
-The server will be available at `http://127.0.0.1:8000/`
-
-### Perform Database Migrations
-
-```bash
-cd student_attendance
-python manage.py migrate
-```
-
 ## 📂 Database
 The project uses SQLite (`db.sqlite3`) for data storage. All student attendance records and related data are stored here.
 
@@ -109,15 +94,13 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-### Create Django Admin User
-
+### Run Django Development Server
 ```bash
 cd student_attendance
-python manage.py createsuperuser
+python manage.py runserver
 ```
 
-Then access the admin panel at `http://127.0.0.1:8000/admin/`
-
+The server will be available at `http://127.0.0.1:8000/`
 
 ### RUN UI Server
 ```bash
@@ -125,3 +108,11 @@ cd UI
 streamlit run .\UI.py
 ```
 Then access the localhost of UI at `http://localhost:8501/`
+
+### Create Django Admin User
+```bash
+cd student_attendance
+python manage.py createsuperuser
+```
+
+Then access the admin panel at `http://127.0.0.1:8000/admin/`
